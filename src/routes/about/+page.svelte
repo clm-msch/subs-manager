@@ -2,7 +2,7 @@
 	import ArticleCard from '../AboutCard.svelte';
 </script>
 <svelte:head>
-	<title>About</title>
+	<title>Compents Testing</title>
 	<meta name="description" content="About this app" />
 </svelte:head>
 

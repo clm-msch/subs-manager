@@ -29,14 +29,14 @@ let default_img = 'https://placehold.co/400';
           date="10 Septembre - (mensuel)"
           description="Lorem ipseum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
           url="https://www.google.com"
-          img="{netflix}"
+          img="{default_img}"
           />
           <ArticleCard
           title="Netflix"
           date="10 Septembre - (mensuel)"
           description="Lorem ipseum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
           url="https://www.google.com"
-          img="{netflix}"
+          img="{default_img}"
           />
     </div>
   </div>

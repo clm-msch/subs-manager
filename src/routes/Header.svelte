@@ -8,7 +8,7 @@
 	</div>
 
 	<nav>
-		<ul>
+		<ul class="flex gap-4">
 			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
 				<a class="hover:text-gray-300 text-white" href="/">Home</a>
 			</li>
@@ -55,7 +55,7 @@
 		border-top: var(--size) solid var(--color-theme-1);
 	} */
 
-	nav a {
+	/* nav a {
 		display: flex;
 		height: 100%;
 		align-items: center;
@@ -66,6 +66,6 @@
 		letter-spacing: 0.1em;
 		text-decoration: none;
 		transition: color 0.2s linear;
-	}
+	} */
 
 </style>

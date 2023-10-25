@@ -1,4 +1,7 @@
 <script lang="ts">
+import { createEventDispatcher } from 'svelte';
+const dispatch = createEventDispatcher();
+
 let price = "";
 let withdrawalDate = "";
 let service = "";
@@ -9,12 +12,7 @@ function handleSubmit() {
         alert("Veuillez remplir le champ du service personnalisé.");
         return;
     }
-    console.log({
-        price,
-        withdrawalDate,
-        service,
-        customService
-    });
+    dispatch('newSubscription', { price, withdrawalDate, service: service === 'Autre' ? customService : service });
 }
 </script>
 

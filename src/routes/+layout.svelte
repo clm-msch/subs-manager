@@ -12,7 +12,6 @@
 	</main>
 
 	<footer>
-		<p class="text-white">Make with 🤍 by clm-msch</p>
 	</footer>
 </div>
 

@@ -1,19 +1,24 @@
 <script lang="ts">
-    let price = "";
-    let withdrawalDate = "";
-    let service = "";
-    let customService = "";
+let price = "";
+let withdrawalDate = "";
+let service = "";
+let customService = "";
 
-    function handleSubmit() {
-        if (service === 'Autre' && customService === '') {
-            alert("Veuillez remplir le champ du service personnalisé.");
-            return;
-        }
-        console.log({ price, withdrawalDate, service, customService });
+function handleSubmit() {
+    if (service === 'Autre' && customService === '') {
+        alert("Veuillez remplir le champ du service personnalisé.");
+        return;
     }
+    console.log({
+        price,
+        withdrawalDate,
+        service,
+        customService
+    });
+}
 </script>
 
-<div class="mx-auto bg-white rounded-xl shadow-md overflow-hidden m-4 p-6">
+<div class="mx-auto bg-white rounded-xl shadow-md overflow-hidden p-6">
     <h2 class="text-xl font-medium text-black mb-4">Ajouter un abonnement</h2>
 
     <div class="mb-4">
@@ -48,7 +53,7 @@
     {/if}
 
     <div class="flex items-center justify-between">
-        <button class="bg-gray-800 px-4 py-3 w-full justify-center flex rounded-lg text-white" type="button" on:click={handleSubmit}>
+        <button class="bg-gray-800 px-4 py-3 w-full justify-center flex rounded-lg text-white text-center" type="button" on:click={handleSubmit}>
             Ajouter
         </button>
     </div>

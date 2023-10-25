@@ -11,12 +11,11 @@ let default_img = 'https://placehold.co/400';
 
 <div>
   <h1 class="text-3xl font-bold text-white mb-8">Components Testing</h1>
-
-  <div class="flex gap-4">
+  <div class="md:flex gap-4 grid">
     <div>
     <SubscriptionForm />
   </div>
-      <div>
+      <div class="flex flex-col gap-4">
         <ArticleCard
           title="Netflix"
           date="10 Septembre - (mensuel)"

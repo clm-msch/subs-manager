@@ -1,6 +1,6 @@
 <script>
-import ArticleCard from '../AboutCard.svelte';
-import SubscriptionForm from '../SubscriptionForm.svelte';
+import ArticleCard from '../../components/AboutCard.svelte';
+import SubscriptionForm from '../../components/SubscriptionForm.svelte';
 import netflix from '$lib/images/netflix_default.jpg';
 let default_img = 'https://placehold.co/400';
 </script>

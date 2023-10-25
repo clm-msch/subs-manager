@@ -6,8 +6,8 @@ export let url = "";
 export let img = "";
 </script>
 
-<div class="mx-auto bg-white rounded-xl shadow-md sm:flex overflow-hidden max-w-2xl flex-row">
-    <img class="object-cover sm:w-56 " src="{img}" alt="{title}">
+<div class="mx-auto bg-white rounded-xl shadow-md sm:flex flex-row">
+    <img class="object-cover sm:w-56 sm:rounded-l-xl" src="{img}" alt="{title}">
 
     <div class="p-6">
         <div class="flex items-center">

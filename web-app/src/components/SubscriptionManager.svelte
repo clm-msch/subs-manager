@@ -1,10 +1,9 @@
 <script lang="ts">
     import SubscriptionCard from './SubscriptionCard.svelte';
     import SubscriptionForm from './SubscriptionForm.svelte';
-
     let subscriptions: any = [];
-
-    function handleNewSubscription(subscription: any) {
+    
+    function handleNewSubscription(subscription : any) {
         subscriptions = [subscription, ...subscriptions];
     }
 </script>
@@ -14,7 +13,7 @@
 </div>
 <div class="grid grid-cols-2 gap-4">
     {#each subscriptions as subscription}
-        <SubscriptionCard {subscription} />
-    {/each}
+    <SubscriptionCard subscription={subscription} />
+{/each}
 </div>
 </div>

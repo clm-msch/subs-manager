@@ -2,9 +2,9 @@
 import { createEventDispatcher } from 'svelte';
 const dispatch = createEventDispatcher();
 
-let price = "";
-let withdrawalDate = "";
-let service = "";
+let price = "0.00";
+let withdrawalDate = new Date().toISOString().slice(0, 10);
+let service = "Netflix";
 let customService = "";
 
 function handleSubmit() {
@@ -12,7 +12,11 @@ function handleSubmit() {
         alert("Veuillez remplir le champ du service personnalisé.");
         return;
     }
-    dispatch('newSubscription', { price, withdrawalDate, service: service === 'Autre' ? customService : service });
+    dispatch('newSubscription', { 
+    price: price || "0.00€", 
+    withdrawalDate: withdrawalDate || "Date par défaut", 
+    service: service === 'Autre' ? customService : service 
+});
 }
 </script>
 

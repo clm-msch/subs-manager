@@ -29,6 +29,9 @@
       subs = subs.filter(subs => subs.id !== id);
     }
   </script>
+  <div class="md:flex gap-4 grid">
+  <div>
+
   
   <form on:submit|preventDefault={handleAddSub} class="mx-auto bg-white rounded-xl shadow-md overflow-hidden p-6">
     <h2 class="text-xl font-medium text-black mb-4">Ajouter un abonnement</h2>
@@ -68,9 +71,11 @@
     <p class="text-red-500">{errorMessage}</p>
     {/if}
 </form>
-
+</div>
+<div class="grid grid-cols-2 gap-4">
   <ShowSub subs={subs} onDelete={deleteSubs} />
-
+</div>
+  </div>
   
   
 

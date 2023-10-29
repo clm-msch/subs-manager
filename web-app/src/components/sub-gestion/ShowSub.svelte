@@ -13,7 +13,7 @@
                 <h1 class="text-xl font-medium text-black mr-2">{sub.service}</h1>
                 <p class="text-sm italic">{sub.withdrawalDate}</p>
             </div>
-            <div class="mt-2 text-gray-500">Prix : {sub.price} €</div>
+            <div class="mt-2 text-gray-500"><b>{sub.price} €</b>/mois</div>
             <div class="mt-4">
                 <div class="bg-gray-800 px-4 py-3 w-full justify-center flex rounded-lg text-white text-center">
                     <button on:click={() => handleDelete(sub.id)}>Annuler l'abonnement</button>

@@ -7,16 +7,21 @@
     let customService = "";
     let subs: any[] = [];
 
+    const services = ["Netflix", "Prime Video", "Disney+", "Spotify", "Deezer", "Xbox Game Pass", "ChatGPT", "Autre"];
+
     let errorMessage = "";
 
     function handleAddSub() {
-      if (!price.trim() || !withdrawalDate.trim() || !service.trim() || !customService.trim()) {
+      if (!price || !withdrawalDate.trim() || (service === "Autre" && !customService.trim())) {
         errorMessage = "N'oublie pas de remplir tous les champs !";
         return;
       }
+
+      let finalService = service === "Autre" ? customService : service;
   
-      subs = [...subs, { id: new Date().getTime(), price, withdrawalDate, service, customService }];
-      price = withdrawalDate = service = customService = "";
+      subs = [...subs, { id: new Date().getTime(), price, withdrawalDate, service: finalService }];
+      price = withdrawalDate = customService = "";
+      service = "";
       errorMessage = "";
     }
 
@@ -41,14 +46,9 @@
     <div class="mb-4">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="service">Service d'abonnement:</label>
         <select class="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="service" bind:value={service}>
-            <option>Netflix</option>
-            <option>Prime Video</option>
-            <option>Disney+</option>
-            <option>Spotify</option>
-            <option>Deezer</option>
-            <option>Xbox Game Pass</option>
-            <option>ChatGPT</option>
-            <option>Autre</option>
+            {#each services as serviceOption}
+            <option value={serviceOption}>{serviceOption}</option>
+            {/each}
         </select>
     </div>
 
@@ -64,12 +64,13 @@
             Ajouter
         </button>
     </div>
+    {#if errorMessage}
+    <p class="text-red-500">{errorMessage}</p>
+    {/if}
 </form>
 
   <ShowSub subs={subs} onDelete={deleteSubs} />
-  {#if errorMessage}
-    <p class="text-red-500 bg-white p-2 rounded">{errorMessage}</p>
-  {/if}
+
   
   
 

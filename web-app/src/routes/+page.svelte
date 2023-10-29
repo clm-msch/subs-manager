@@ -1,4 +1,5 @@
 <script>
+	import Form from '../components/Form.svelte';
 </script>
 
 <svelte:head>
@@ -7,4 +8,5 @@
 </svelte:head>
 
 <section>	
+	<Form />
 </section>

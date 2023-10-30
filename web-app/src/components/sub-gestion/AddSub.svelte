@@ -9,20 +9,22 @@
 
     const services = ["Netflix", "Prime Video", "Disney+", "Spotify", "Deezer", "Xbox Game Pass", "ChatGPT", "Autre"];
 
-    let errorMessage = "";
+    let errorMessage = "*Ne rien oublier";
+
+    $: total = subs.reduce((acc, sub) => acc + sub.price, 0);
 
     function handleAddSub() {
-      // if (!price || !withdrawalDate.trim() || (service === "Autre" && !customService.trim())) {
-      //   errorMessage = "N'oublie pas de remplir tous les champs !";
-      //   return;
-      // }
+      if (!price || !withdrawalDate.trim() || !service.trim()) {
+        errorMessage = "Il faut tous remplir !";
+        return;
+      }
 
       let finalService = service === "Autre" ? customService : service;
   
       subs = [...subs, { id: new Date().getTime(), price, withdrawalDate, service: finalService }];
       price = withdrawalDate = customService = "";
       service = "";
-      errorMessage = "";
+      errorMessage = "*Ne rien oublier";
     }
 
     function deleteSubs(id: number) {
@@ -30,8 +32,8 @@
     }
   </script>
   <div class="md:flex gap-4 grid">
-  <div>
-  <form on:submit|preventDefault={handleAddSub} class="mx-auto bg-white rounded-lg shadow-md overflow-hidden p-6">
+  <div class="flex flex-col gap-4">
+  <form on:submit|preventDefault={handleAddSub} class="mx-auto bg-white rounded-lg shadow-md overflow-hidden p-4">
     <h2 class="text-xl font-medium text-black mb-4">Ajouter un abonnement</h2>
 
     <div class="mb-4">
@@ -65,15 +67,20 @@
             Ajouter
         </button>
     </div>
-    {#if errorMessage}
+    <!-- {#if errorMessage} -->
     <p class="text-red-500">{errorMessage}</p>
-    {/if}
+    <!-- {/if} -->
 </form>
+<div class="p-4 bg-white rounded-lg">
+  <h2 class="text-xl font-medium text-black mb-2">Total coût :</h2>
+  <p class="text-2xl font-medium"><b>{total} €</b>/m</p>
+</div>
 </div>
 <div class="bg-white rounded-lg sm:w-full">
   <div class="flex">
-    <p class="text-4xl font-medium">Ajouter des abonnement</p>
+    <!-- <p class="text-4xl font-medium">Ajouter des abonnement</p> -->
   </div>
+  
   <ShowSub subs={subs} onDelete={deleteSubs} />
 </div>
   </div>

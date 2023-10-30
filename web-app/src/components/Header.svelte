@@ -9,7 +9,7 @@ import {
         Sub-manager
     </div>
 
-    <nav>
+    <!-- <nav>
         <ul class="flex gap-4">
             <li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
                 <a class="hover:text-gray-300 text-white" href="/">Home</a>
@@ -18,7 +18,7 @@ import {
                 <a class="hover:text-gray-300 text-white" href="/about">Compenents Testing</a>
             </li>
         </ul>
-    </nav>
+    </nav> -->
 </header>
 
 <style>

@@ -6,6 +6,7 @@
         onDelete(id);
     }
 </script>
+<h2 class="text-xl font-medium text-black py-4 px-6">Liste des abonnement :</h2>
 {#each subs as sub, i (i)}
 <div class="mx-auto border-b border-black last:border-b-0">
     <div class="p-6 flex justify-between items-center gap-2">

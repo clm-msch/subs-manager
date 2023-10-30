@@ -1,39 +1,31 @@
 <script lang="ts">
     import ShowSub from "./ShowSub.svelte";
-
     let price = "";
     let withdrawalDate = ""
     let service = "";
     let customService = "";
     let subs: any[] = [];
-
     const services = ["Netflix", "Prime Video", "Disney+", "Spotify", "Deezer", "Xbox Game Pass", "ChatGPT", "Autre"];
-
     let errorMessage = "*Ne rien oublier";
-
     $: total = subs.reduce((acc, sub) => acc + sub.price, 0);
-
     function handleAddSub() {
       if (!price || !withdrawalDate.trim() || !service.trim()) {
         errorMessage = "Il faut tous remplir !";
         return;
       }
-
       let finalService = service === "Autre" ? customService : service;
-  
       subs = [...subs, { id: new Date().getTime(), price, withdrawalDate, service: finalService }];
       price = withdrawalDate = customService = "";
       service = "";
       errorMessage = "*Ne rien oublier";
     }
-
     function deleteSubs(id: number) {
       subs = subs.filter(subs => subs.id !== id);
     }
   </script>
   <div class="md:flex gap-4 grid">
   <div class="flex flex-col gap-4">
-  <form on:submit|preventDefault={handleAddSub} class="mx-auto bg-white rounded-lg shadow-md overflow-hidden p-4">
+  <form on:submit|preventDefault={handleAddSub} class="mx-auto bg-white rounded-lg w-full shadow-md overflow-hidden p-4">
     <h2 class="text-xl font-medium text-black mb-4">Ajouter un abonnement</h2>
 
     <div class="mb-4">
